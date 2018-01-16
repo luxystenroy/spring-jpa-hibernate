@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.demo.entity.Person;
 import com.example.demo.jdbc.PersonJdbcDAO;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class SpringJdbcApplication implements CommandLineRunner{
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

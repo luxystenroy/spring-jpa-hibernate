@@ -1,11 +1,18 @@
 package com.example.demo.entity;
 
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;   
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
 
 @Entity
+//@Table(name="Person") // if match the name of the class is not necessary
+@NamedQuery(name="find_all_person",query="select p from Person p")
 public class Person {
 	@Id
 	@GeneratedValue
@@ -17,9 +24,16 @@ public class Person {
 	public Person() {
 		
 	}
-	public Person(int id, String name, String location, Date birthdate) {
+	public Person(int id,String name, String location, Date birthdate) {
 		super();
 		this.id = id;
+		this.name = name;
+		this.location = location;
+		this.birthdate = birthdate;
+	}
+	
+	public Person(String name, String location, Date birthdate) {
+		super();
 		this.name = name;
 		this.location = location;
 		this.birthdate = birthdate;
@@ -48,15 +62,10 @@ public class Person {
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "\nPerson [id=" + id + ", name=" + name + ", location=" + location + ", birthdate=" + birthdate + "]";
+		return "Person [id=" + id + ", name=" + name + ", location=" + location + ", birthdate=" + birthdate + "]";
 	}
-	
-	
-	
-	
 
+	
 }
