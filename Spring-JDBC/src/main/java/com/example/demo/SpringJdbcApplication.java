@@ -26,6 +26,7 @@ public class SpringJdbcApplication implements CommandLineRunner{
 		
 		
 		logger.info("All Users {}",dao.findAll());
+		logger.info("get one person {}",dao.findById(100));
 		
 	}
 }
