@@ -21,10 +21,18 @@ public class PersonJdbcDAO {
 		
 	}
 	
-public Person findById(int id){
+	public Person findById(int id){
+			
+			return jdbcTemaplate.queryForObject("Select * from person where id = ? ",
+					new Object[] {id}, new BeanPropertyRowMapper<Person>(Person.class));
+			
+	}
+	
+
+	public int deleteById(int id){
 		
-		return jdbcTemaplate.queryForObject("Select * from person where id = ? ",
-				new Object[] {id}, new BeanPropertyRowMapper<Person>(Person.class));
+		return jdbcTemaplate.update("delete from person where id = ? ",
+				new Object[] {id});
 		
 	}
 }

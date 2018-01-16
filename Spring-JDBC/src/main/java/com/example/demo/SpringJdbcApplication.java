@@ -27,6 +27,7 @@ public class SpringJdbcApplication implements CommandLineRunner{
 		
 		logger.info("All Users {}",dao.findAll());
 		logger.info("get one person {}",dao.findById(100));
+		logger.info("Deleting 102 -> Numbers of rows deleted -> {}",dao.deleteById(102));
 		
 	}
 }
